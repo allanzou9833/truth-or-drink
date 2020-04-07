@@ -1,4 +1,22 @@
-<li *ngFor="let card of cards">
-  {{ card.questionA }}
-  {{ card.questionB }}
-</li>
+<ng-container *ngIf="!newGame; else new">
+  <div *ngIf="card; else empty">
+    <div>
+      {{ card.questionA }}
+    </div>
+    <div *ngIf="card.questionB">
+      {{ card.questionB}}
+    </div>
+    <button (click)="getCard()">Next Card</button>
+    <button (click)="shuffleCards()">New Game</button>
+  </div>
+</ng-container>
+
+<ng-template #empty>
+  The deck is empty. Please restart.
+  <button (click)="shuffleCards()">Restart</button>
+</ng-template>
+
+<ng-template #new>
+  Ready to start?
+  <button (click)="getCard()">First Card</button>
+</ng-template>

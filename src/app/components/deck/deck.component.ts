@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { Card } from '../../models/card';
 import { CardsService } from '../../services/cards/cards.service';
 
@@ -7,16 +7,20 @@ import { CardsService } from '../../services/cards/cards.service';
   templateUrl: './deck.component.html',
   styleUrls: ['./deck.component.scss']
 })
-export class DeckComponent implements OnInit {
-  cards: Card[];
+export class DeckComponent {
+  card: Card;
+  newGame: boolean = true;
+
   constructor(private cardsService: CardsService) { }
 
-  ngOnInit() {
-    this.getCards();
-    console.log(this.cards);
+  getCard(): void {
+    if(this.newGame)
+      this.newGame = false;
+    this.cardsService.getCard().subscribe(card => this.card = card);
   }
 
-  getCards(): void {
-    this.cardsService.getAllCards().subscribe(cards => this.cards = cards);
+  shuffleCards(): void {
+    this.newGame = true;
+    this.cardsService.shuffleCards();
   }
 }

@@ -9,14 +9,35 @@ import { Observable, of } from 'rxjs';
 export class CardsService {
   otrDeck = otrJson;
   cards: Card[];
+  returnCards: Card[];
 
-  mapJsonToCard(): void {
+  InitCards(): void {
     this.cards = this.otrDeck.map(c => new Card(c.id, c.questions));
+    this.returnCards = [...this.cards];
+    this.shuffle(this.returnCards);
   }
 
-  getAllCards(): Observable<Card[]> {
-    if (!this.cards)
-      this.mapJsonToCard();
-    return of(this.cards);
+  getCard(): Observable<Card> {
+    if(!this.cards)
+      this.InitCards();
+    const card = this.returnCards.pop();
+    return of(card);
   }
+
+  shuffleCards(): void {
+    this.returnCards = [...this.cards];
+    this.shuffle(this.returnCards);
+  }
+
+  /**
+  * Shuffles array in place. ES6 version
+  * @param {Array} a items An array containing the items.
+  */
+  private shuffle(a: any[]) {
+    for (let i = a.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [a[i], a[j]] = [a[j], a[i]];
+    }
+    return a;
+ }
 }
