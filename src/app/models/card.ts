@@ -16,7 +16,7 @@ export class Card {
   }
 }
 
-const deckMap: { [otr: string]: string} = {
+const deckMap: { [name: string]: string} = {
   "otr": DECK_NAMES.ON_THE_ROCKS,
   "lc": DECK_NAMES.LAST_CALL,
   "ed": DECK_NAMES.EXTRA_DIRTY,

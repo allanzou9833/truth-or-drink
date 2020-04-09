@@ -1,32 +1,42 @@
 import { Injectable } from '@angular/core';
 import otrJson from 'src/assets/On-the-rocks.json';
+import edJson from 'src/assets/Extra-dirty.json';
 import { Card } from '../../models/card';
 import { Observable, of } from 'rxjs';
+import { DECK_NAMES } from '../../constants/deck';
 
 @Injectable({
   providedIn: 'root'
 })
 export class CardsService {
-  otrDeck = otrJson;
-  cards: Card[];
-  returnCards: Card[];
+  decks: { [deckName: string]: Card[] } = {
+    [DECK_NAMES.ON_THE_ROCKS]: [],
+    [DECK_NAMES.LAST_CALL]: [],
+    [DECK_NAMES.HAPPY_HOUR]: [],
+    [DECK_NAMES.EXTRA_DIRTY]: []
+  };
+  cards: Card[] = [];
+
+  constructor() {
+    this.InitCards();
+  }
 
   InitCards(): void {
-    this.cards = this.otrDeck.map(c => new Card(c.id, c.questions));
-    this.returnCards = [...this.cards];
-    this.shuffle(this.returnCards);
+    const otrDeck = otrJson.map(c => new Card(c.id, c.questions));
+    const edDeck = edJson.map(c => new Card(c.id, c.questions));
+    this.decks[DECK_NAMES.ON_THE_ROCKS] = otrDeck;
+    this.decks[DECK_NAMES.EXTRA_DIRTY] = edDeck;
   }
 
   getCard(): Observable<Card> {
-    if(!this.cards)
-      this.InitCards();
-    const card = this.returnCards.pop();
+    const card = this.cards.pop();
     return of(card);
   }
 
-  shuffleCards(): void {
-    this.returnCards = [...this.cards];
-    this.shuffle(this.returnCards);
+  filterByDeck(decks: string[]): void {
+    this.cards = [];
+    decks.forEach(name => this.cards = [...this.cards, ...this.decks[name]]);
+    this.shuffle(this.cards);
   }
 
   /**
