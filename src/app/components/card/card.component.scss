@@ -1,0 +1,23 @@
+.container {
+  border: 1px solid hsl(0, 0, 80);
+  box-shadow: 0 10px 15px 2px rgba(0,0,0,0.2);
+  transition: 0.3s;
+  border-radius: 1.5em;
+  padding: 1em;
+  height: 80%;
+  margin: 2em 3em;
+}
+.content {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+}
+
+.restart-btn {
+  margin-top: 4em;
+}
+
+.card-content {
+  height: 100%;
+}

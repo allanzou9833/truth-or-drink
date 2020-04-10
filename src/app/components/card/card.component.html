@@ -1,16 +1,11 @@
-<ng-container *ngIf="!newGame; else new">
-  <div *ngIf="card; else empty">
-    <div>Deck: {{ card.deck }} </div>
-    <div>
-      A: {{ card.questionA }}
-    </div>
-    <div *ngIf="card.questionB">
-      B: {{ card.questionB}}
-    </div>
+<div class="container" *ngIf="!newGame; else new">
+  <div class="content" *ngIf="card; else empty">
+    <app-one-question *ngIf="!card.questionB" class="card-content" [card]="card"></app-one-question>
+    <app-two-questions *ngIf="card.questionB" class="card-content" [card]="card"></app-two-questions>
     <button (click)="getCard()">Next Card</button>
-    <button (click)="newGame = true">New Game</button>
   </div>
-</ng-container>
+  <button *ngIf="card" class="restart-btn" (click)="newGame = true">New Game</button>
+</div>
 
 <ng-template #empty>
   The deck is empty. Please restart.
@@ -18,8 +13,8 @@
 </ng-template>
 
 <ng-template #new>
-  Ready to start?
   <div>
+    Ready to start?
     <form [formGroup]="form" (submit)="filterDecks(form.value)">
       <div *ngFor="let deck of deckControls.controls; let i=index">
         <input type="checkbox" [formControl]="deck" />

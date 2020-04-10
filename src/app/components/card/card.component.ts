@@ -5,11 +5,11 @@ import { DECK_NAMES } from '../../constants/deck';
 import { FormBuilder, FormGroup, FormArray } from '@angular/forms';
 
 @Component({
-  selector: 'app-deck',
-  templateUrl: './deck.component.html',
-  styleUrls: ['./deck.component.scss']
+  selector: 'app-card',
+  templateUrl: './card.component.html',
+  styleUrls: ['./card.component.scss']
 })
-export class DeckComponent {
+export class CardComponent {
   card: Card;
   newGame: boolean = true;
   decks: { name: string, selected: boolean }[] = [

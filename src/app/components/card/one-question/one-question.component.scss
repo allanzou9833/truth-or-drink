@@ -1,0 +1,31 @@
+.card {
+  height: 100%;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+
+  .card-deck {
+    width: 10em;
+    align-self: flex-end;
+    margin-bottom: 2em;
+  }
+
+  .card-header {
+    margin-bottom: 1em;
+    text-transform: uppercase;
+    color: gray;
+  }
+
+  .card-question {
+    font-size: 1.5em;
+    font-weight: bold;
+    flex-grow: 1;
+  }
+
+  .card-footer {
+    margin-bottom: 1em;
+    font-size: 1.3em;
+    color: gray;
+  }
+}

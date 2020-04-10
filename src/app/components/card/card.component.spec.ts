@@ -1,28 +1,34 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { DeckComponent } from './deck.component';
+import { CardComponent } from './card.component';
 import { CardsService } from '../../services/cards/cards.service';
 import { FormsModule, ReactiveFormsModule, FormArray } from '@angular/forms';
 import { DECK_NAMES } from '../../constants/deck';
 import { Card } from '../../models/card';
+import { OneQuestionComponent } from './one-question/one-question.component';
+import { TwoQuestionsComponent } from './two-questions/two-questions.component';
 
-describe('DeckComponent', () => {
-  let component: DeckComponent;
-  let fixture: ComponentFixture<DeckComponent>;
+describe('CardComponent', () => {
+  let component: CardComponent;
+  let fixture: ComponentFixture<CardComponent>;
   let cardsService: CardsService;
   let filterByDeckSpy: jasmine.Spy;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       imports: [ FormsModule, ReactiveFormsModule ],
-      declarations: [ DeckComponent ],
+      declarations: [ 
+        CardComponent,
+        OneQuestionComponent,
+        TwoQuestionsComponent
+      ],
       providers: [ CardsService ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(DeckComponent);
+    fixture = TestBed.createComponent(CardComponent);
     component = fixture.componentInstance;
 
     cardsService = fixture.debugElement.injector.get(CardsService);

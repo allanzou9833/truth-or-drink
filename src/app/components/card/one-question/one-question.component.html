@@ -1,0 +1,14 @@
+<div class="card" *ngIf="card">
+  <div class="card-deck">
+    <img [src]="deckIcons[card.deck]"/>
+  </div>
+  <div class="card-header">
+    This round's on me
+  </div>
+  <div class="card-question">
+    {{ card.questionA }}
+  </div>
+  <div class="card-footer">
+    Everybody else answers.
+  </div>
+</div>

@@ -3,13 +3,17 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { DeckComponent } from './components/deck/deck.component';
+import { CardComponent } from './components/card/card.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { OneQuestionComponent } from './components/card/one-question/one-question.component';
+import { TwoQuestionsComponent } from './components/card/two-questions/two-questions.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    DeckComponent
+    CardComponent,
+    OneQuestionComponent,
+    TwoQuestionsComponent
   ],
   imports: [
     BrowserModule,

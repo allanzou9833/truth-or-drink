@@ -1,0 +1,17 @@
+<div class="card" *ngIf="card">
+  <div class="card-deck">
+    <img [src]="deckIcons[card.deck]"/>
+  </div>
+  <div class="card-question">
+    A
+    <div>
+      {{ card.questionA }}
+    </div>
+  </div>
+  <div class="card-question">
+    B
+    <div>
+      {{ card.questionB }}
+    </div>
+  </div>
+</div>

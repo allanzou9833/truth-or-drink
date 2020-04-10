@@ -1,9 +1,12 @@
 import { Injectable } from '@angular/core';
-import otrJson from 'src/assets/On-the-rocks.json';
-import edJson from 'src/assets/Extra-dirty.json';
 import { Card } from '../../models/card';
 import { Observable, of } from 'rxjs';
 import { DECK_NAMES } from '../../constants/deck';
+
+import otrJson from '../../../assets/On-the-rocks.json';
+import lcJson from '../../../assets/Last-call.json';
+import hhJson from '../../../assets/Happy-hour.json';
+import edJson from '../../../assets/Extra-dirty.json';
 
 @Injectable({
   providedIn: 'root'
@@ -23,8 +26,13 @@ export class CardsService {
 
   InitCards(): void {
     const otrDeck = otrJson.map(c => new Card(c.id, c.questions));
+    const lcDeck = lcJson.map(c => new Card(c.id, c.questions));
+    const hhDeck = hhJson.map(c => new Card(c.id, c.questions));
     const edDeck = edJson.map(c => new Card(c.id, c.questions));
+    
     this.decks[DECK_NAMES.ON_THE_ROCKS] = otrDeck;
+    this.decks[DECK_NAMES.LAST_CALL] = lcDeck;
+    this.decks[DECK_NAMES.HAPPY_HOUR] = hhDeck;
     this.decks[DECK_NAMES.EXTRA_DIRTY] = edDeck;
   }
 
