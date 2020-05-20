@@ -1,10 +1,14 @@
 /* You can add global styles to this file, and also import other style files */
-@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap');
+
+@import './variables.scss';
 
 html {
   box-sizing: border-box;
-  font-size: 16px;
-  font-family: 'Open Sans', sans-serif;
+  font-size: 10px;
+  font-family: 'Montserrat', sans-serif;
+  background-color: $color-background;
+  color: $color-text;
 }
 
 *, *:before, *:after {
@@ -24,4 +28,25 @@ ol, ul {
 img {
   max-width: 100%;
   height: auto;
+}
+
+.btn {
+  cursor: pointer;
+  border: none;
+  color: white;
+  text-align: center;
+  font-size: 1.3em;
+  margin-bottom: 10px;
+  border-radius: 4px;
+  width: 10em;
+  height: 2em;
+  letter-spacing: 2px;
+
+  &.btn-primary {
+    @include primaryColor(true);
+  }
+  
+  &.btn-secondary {
+    @include primaryColor(false);
+  }
 }

@@ -1,23 +1,50 @@
-.container {
-  border: 1px solid hsl(0, 0, 80);
-  box-shadow: 0 10px 15px 2px rgba(0,0,0,0.2);
-  transition: 0.3s;
-  border-radius: 1.5em;
-  padding: 1em;
-  height: 80%;
-  margin: 2em 3em;
+@mixin height {
+  @media screen and (max-width: 600px) {
+    height: 70vh;
+  }
+
+  @media screen and (min-width: 600px) {
+    height: 50vh;
+  }
+
+  @media only screen and (min-width: 992px) {
+    height: 40vh;
+  }
+
+  @media only screen and (min-width: 1200px) {
+    height: 60vh;
+  }
 }
-.content {
+
+.container {
+  @include height();
+  margin: 0 auto;
+
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  height: 100%;
+  justify-content: space-evenly;
+
+  .card {
+    height: 80%;
+    border: 1px solid hsl(0, 0, 80);
+    box-shadow: 0 10px 15px 2px rgba(0,0,0,0.2);
+    border-radius: 1.5em;
+    padding: 1em;
+    background-color: whitesmoke;
+  }
+  
+  .btn-group {
+    display: flex;
+    justify-content: space-around;
+    margin: 1em 0;
+    
+    .btn {
+      width: 8em;
+    }
+  }
 }
 
-.restart-btn {
-  margin-top: 4em;
-}
-
-.card-content {
-  height: 100%;
+.text-empty {
+  font-size: 2em;
+  margin-bottom: 1em;
 }

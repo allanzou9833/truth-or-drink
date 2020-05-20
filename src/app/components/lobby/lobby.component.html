@@ -1,0 +1,26 @@
+<div *ngIf="newGame">
+  <div class="room-link">
+    <input #link type="text" class="link" [value]="roomLink" readonly>
+    <button class="btn btn-copy" (click)="copyRoomLink(link)">Copy</button>
+  </div>
+ 
+  <div class="display">
+    <div class="display-player">
+      <h1>Players</h1>
+      <ul>
+        <li *ngFor="let player of players">{{ player }}</li>
+      </ul>
+    </div>
+    
+    <div class="display-deck-select">
+      <h1>Decks</h1>
+      <ng-container *ngFor="let deck of deckNames">
+        <button [ngClass]="{ 'enabled': selectedDecks[deck] }" class="btn btn-select" (click)="onDeckSelection(deck)">{{deck}}</button>
+      </ng-container>
+    </div>
+  </div>
+  
+  <button class="btn btn-primary" (click)="startGame()">Start Game</button>
+</div>
+
+<app-card *ngIf="!newGame" (restart)="restart()"></app-card>

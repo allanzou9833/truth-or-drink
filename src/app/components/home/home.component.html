@@ -1,0 +1,5 @@
+<div class="container">
+  <input id="name" type="text" [(ngModel)]="playerName" placeholder="Enter your name">
+  <button *ngIf="showJoinBtn" class="btn btn-secondary" (click)="joinLobby.emit(playerName)">Join Room</button>
+  <button class="btn btn-primary" (click)="createRoom.emit(playerName)">Create Room</button>
+</div>

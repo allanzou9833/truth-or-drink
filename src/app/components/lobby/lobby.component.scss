@@ -1,0 +1,73 @@
+@import '../../../variables.scss';
+
+%enabled {
+  border: none;
+  color: white;
+  background-color: $color-secondary;
+}
+
+%unenabled {
+  border: 1px solid $color-secondary;
+  color: $color-secondary;
+  background-color: white;
+}
+
+.display {
+  display: flex;
+  justify-content: space-around;
+
+  background-color: white;
+  margin: 15px 0;
+  padding: 10px 0;
+  border-radius: 20px;
+
+  h1 {
+    font-weight: 600;
+    margin-bottom: 20px;
+    letter-spacing: 1px;
+  }
+
+  &-player {
+    li {
+      margin: 10px 0;
+      font-size: 1.3em;
+    }
+  }
+
+  &-deck-select {
+    color: $color-secondary;
+    display: flex;
+    flex-direction: column;
+    .btn-select {
+      @extend %unenabled;
+
+      &.enabled {
+        @extend %enabled;
+      }
+    }
+  }
+}
+
+.room-link {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .link {
+    width: 20em;
+    border: none;
+    border-radius: 2px 1px 1px 2px;
+    text-align: center;
+    background-color: white;
+    padding: 5px 10px;
+    color: $color-text;
+  }
+
+  .btn-copy {
+    @include primaryColor(false);
+    width: 4em;
+    letter-spacing: initial;
+    border-radius: 1px 2px 2px 1px;
+    margin: 0;
+  }
+}

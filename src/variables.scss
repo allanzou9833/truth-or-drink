@@ -1,0 +1,12 @@
+$color-primary: #bd5aa4;
+$color-secondary: #7f96ff;
+$color-background: #c1e0f7;
+$color-text: #545454;
+
+@mixin primaryColor($primary: true) {
+  @if $primary {
+    background-color: $color-primary;
+  } @else {
+    background-color: $color-secondary;
+  }
+}

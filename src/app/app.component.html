@@ -3,7 +3,12 @@
     <img src="../assets/logo.ico">
   </div>
   <div class="content">
-    <app-card></app-card>
+    <app-home 
+      *ngIf="!showLobby" 
+      [showJoinBtn]="socketService.roomPropHasValue()"
+      (createRoom)="createRoom($event)"
+      (joinLobby)="joinLobby($event)">
+    </app-home>
+    <app-lobby *ngIf="showLobby"></app-lobby>
   </div>
 </div>
-<router-outlet></router-outlet>

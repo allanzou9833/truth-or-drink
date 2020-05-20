@@ -2,18 +2,19 @@
   "compileOnSave": false,
   "compilerOptions": {
     "baseUrl": "./",
+    "downlevelIteration": true,
     "outDir": "./dist/out-tsc",
     "noImplicitAny": true,
     "sourceMap": true,
     "declaration": false,
-    "module": "es6",
+    "module": "esnext",
     "moduleResolution": "node",
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
     "importHelpers": true,
     "jsx": "react",
     "allowJs": true,
-    "target": "es5",
+    "target": "es2015",
     "types": ["cypress"],
     "typeRoots": [
       "node_modules/@types"

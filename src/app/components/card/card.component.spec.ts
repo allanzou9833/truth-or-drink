@@ -1,28 +1,37 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { MockComponent, MockHelper } from 'ng-mocks';
+import { of } from 'rxjs';
 
 import { CardComponent } from './card.component';
-import { CardsService } from '../../services/cards/cards.service';
-import { FormsModule, ReactiveFormsModule, FormArray } from '@angular/forms';
-import { DECK_NAMES } from '../../constants/deck';
-import { Card } from '../../models/card';
 import { OneQuestionComponent } from './one-question/one-question.component';
 import { TwoQuestionsComponent } from './two-questions/two-questions.component';
+import { SocketService } from '../../services/socket/socket.service';
+import { Card } from '../../models/card.model';
 
 describe('CardComponent', () => {
   let component: CardComponent;
   let fixture: ComponentFixture<CardComponent>;
-  let cardsService: CardsService;
-  let filterByDeckSpy: jasmine.Spy;
+  let socketService: jasmine.SpyObj<SocketService>;
+  
+  const twoQuestionCard = new Card('ed-1', ['a', 'b']);
 
   beforeEach(async(() => {
+    socketService = jasmine.createSpyObj<SocketService>('SocketService', [
+      'getCard$',
+      'newCard'
+    ]);
+    
+    socketService.getCard$.and.returnValue(of(twoQuestionCard));
+
     TestBed.configureTestingModule({
-      imports: [ FormsModule, ReactiveFormsModule ],
       declarations: [ 
         CardComponent,
-        OneQuestionComponent,
-        TwoQuestionsComponent
+        MockComponent(OneQuestionComponent),
+        MockComponent(TwoQuestionsComponent)
       ],
-      providers: [ CardsService ]
+      providers: [
+        { provide: SocketService, useValue: socketService }
+      ]
     })
     .compileComponents();
   }));
@@ -30,10 +39,6 @@ describe('CardComponent', () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(CardComponent);
     component = fixture.componentInstance;
-
-    cardsService = fixture.debugElement.injector.get(CardsService);
-    cardsService.InitCards();
-    filterByDeckSpy = spyOn(cardsService, 'filterByDeck').and.callThrough();
     fixture.detectChanges();
   });
 
@@ -42,31 +47,36 @@ describe('CardComponent', () => {
   });
 
   it('should get new card', () => {
-    const card = new Card('lc-3', ['A', 'B']);
-    cardsService.cards.push(card);
     component.getCard();
-    expect(component.card).toEqual(card);
+    expect(socketService.newCard).toHaveBeenCalled();
   });
 
-  it('should build the form controls for deck selection', () => {
-    const controls = component.buildDeckControls();
-    expect(controls).toEqual(jasmine.any(FormArray));
+  it('should send correct value to TwoQuestionsComponent', () => {
+    const mockTwoQuestionsComponent = MockHelper.findOrFail<TwoQuestionsComponent>(
+      fixture.debugElement,
+      TwoQuestionsComponent
+    ).componentInstance;
+    
+    expect(mockTwoQuestionsComponent.card).toEqual(twoQuestionCard);
   });
 
-  it('should filter decks acccording to selections', () => {
-    const getCardSpy = spyOn(component, 'getCard').and.callThrough();
-    const formValues = { decks: [true, true, false, false] };
-    component.filterDecks(formValues);
-    expect(component.newGame).toBeFalsy();
-    expect(filterByDeckSpy).toHaveBeenCalledWith([
-      DECK_NAMES.ON_THE_ROCKS,
-      DECK_NAMES.LAST_CALL
-    ]);
-    expect(getCardSpy).toHaveBeenCalled();
-  });
+  describe('OneQuestion Tests: ', () => {
+    const oneQuestionCard = new Card('ed-2', ['a']);
+    beforeEach(() => {
+      socketService.getCard$.and.returnValue(of(oneQuestionCard));
+      
+      fixture = TestBed.createComponent(CardComponent);
+      component = fixture.componentInstance;
+      fixture.detectChanges();
+    });
 
-  it('should return the form controls for checkboxes', () => {
-    const controls = component.deckControls;
-    expect(controls).toEqual(jasmine.any(FormArray));
+    it('should send correct value to OneQuestionComponent', () => {
+      const mockOneQuestionComponent = MockHelper.findOrFail<OneQuestionComponent>(
+        fixture.debugElement,
+        OneQuestionComponent
+      ).componentInstance;
+      
+      expect(mockOneQuestionComponent.card).toEqual(oneQuestionCard);
+    })
   });
 });
