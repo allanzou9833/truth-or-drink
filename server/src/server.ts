@@ -4,8 +4,9 @@ import { Game } from './types';
 
 const app = require('http').createServer();
 const io: SocketIO.Server = require('socket.io')(app);
+const port = process.env.PORT || 3000;
 
-app.listen(80);
+app.listen(process.env.PORT);
 
 let state: {[room: string]: {deck: Deck, newGame: boolean}} = {};
 

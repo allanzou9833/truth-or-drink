@@ -36,9 +36,7 @@ FROM nginx:alpine
 
 # copy artifact build from the 'build environment'
 COPY --from=build /app/dist /usr/share/nginx/html
-
-# expose port 80
-EXPOSE 80
+COPY --from=build /app/default.conf.template /etc/nginx/conf.d/default.conf.template
 
 # run nginx
-CMD ["nginx", "-g", "daemon off;"]
+CMD /bin/sh -c "envsubst '\$PORT' < /etc/nginx/conf.d/default.conf.template > /etc/nginx/conf.d/default.conf" && nginx -g 'daemon off;'
