@@ -1,0 +1,37 @@
+{
+  "name": "server",
+  "version": "1.0.0",
+  "description": "",
+  "author": "",
+  "main": "server.js",
+  "scripts": {
+    "start": "node -r ts-node/register src/server.ts",
+    "dev": "nodemon",
+    "build": "tsc"
+  },
+  "dependencies": {
+    "socket.io": "^2.3.0"
+  },
+  "devDependencies": {
+    "@types/node": "^13.13.5",
+    "@types/socket.io": "^2.1.4",
+    "eslint": "^6.8.0",
+    "eslint-plugin-import": "^2.20.2",
+    "nodemon": "1.18.3",
+    "ts-node": "^8.10.1",
+    "typescript": "^3.8.3"
+  },
+  "nodemonConfig": {
+    "ignore": [
+      "**/*.test.ts",
+      "**/*.spec.ts",
+      ".git",
+      "node_modules"
+    ],
+    "watch": [
+      "src"
+    ],
+    "exec": "npm start",
+    "ext": "ts"
+  }
+}

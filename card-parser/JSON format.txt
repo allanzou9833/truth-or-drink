@@ -1,0 +1,19 @@
+{
+  otr: [
+    {
+      id: otr-1,
+      questions: [A, B]
+    }
+  ],
+  ed: [],
+  hh: [],
+  lc: []
+}
+
+
+[
+  {
+    id: deck-1,
+    questions: [A, B]
+  }
+]

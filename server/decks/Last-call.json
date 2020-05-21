@@ -1,0 +1,381 @@
+{
+  "lc-1": {
+    "id": "lc-1",
+    "questions": [
+      "Have you ever broken off plans with me to be with someone else?",
+      "Who is in control in our relationship?"
+    ]
+  },
+  "lc-2": {
+    "id": "lc-2",
+    "questions": [
+      "Does our relationship bring out the best in you? In me? If not, why?"
+    ]
+  },
+  "lc-3": {
+    "id": "lc-3",
+    "questions": [
+      "What's something you resent about me?"
+    ]
+  },
+  "lc-4": {
+    "id": "lc-4",
+    "questions": [
+      "Describe three ways to improve my physical appearance and general attractiveness."
+    ]
+  },
+  "lc-5": {
+    "id": "lc-5",
+    "questions": [
+      "Describe a time you lost a little bit of respect for me."
+    ]
+  },
+  "lc-6": {
+    "id": "lc-6",
+    "questions": [
+      "What percentage of the time do you think I'm completely full of shit?"
+    ]
+  },
+  "lc-7": {
+    "id": "lc-7",
+    "questions": [
+      "Do you even remotely care what I think of you?"
+    ]
+  },
+  "lc-8": {
+    "id": "lc-8",
+    "questions": [
+      "Do you think I'm more or less honest than you are?",
+      "Do you ever put me down to make yourself feel better?"
+    ]
+  },
+  "lc-9": {
+    "id": "lc-9",
+    "questions": [
+      "What's a fundamental difference between us, and will we ever resolve it?",
+      "Do you think I'll ever do anything worth being remembered by society?"
+    ]
+  },
+  "lc-10": {
+    "id": "lc-10",
+    "questions": [
+      "Where are we, and what are we doing, in ten years? Have we honestly improved each other's lives?",
+      "Have you ever harassed someone online? Do you think they deserved it?"
+    ]
+  },
+  "lc-11": {
+    "id": "lc-11",
+    "questions": [
+      "If someone was interested in dating me, what thing about me would you tell them to change their mind?",
+      "What have I ruined for you?"
+    ]
+  },
+  "lc-12": {
+    "id": "lc-12",
+    "questions": [
+      "What problem do I think I'm successfully hiding from everyone, but is actually completely obvious?",
+      "Do you see us as equals?"
+    ]
+  },
+  "lc-13": {
+    "id": "lc-13",
+    "questions": [
+      "What do you wish I'd just shut up about?",
+      "Do I often seem like I'm being fake?"
+    ]
+  },
+  "lc-14": {
+    "id": "lc-14",
+    "questions": [
+      "Do you think I'm good parent material?",
+      "What thing do I love that you absolutely hate?"
+    ]
+  },
+  "lc-15": {
+    "id": "lc-15",
+    "questions": [
+      "What negative thing have I said about you that's haunted you forever?",
+      "What one change could I make that would vastly improve who I amas a person?"
+    ]
+  },
+  "lc-16": {
+    "id": "lc-16",
+    "questions": [
+      "What ethical boundaries are you happy to cross?",
+      "Am I too picky? Too petty? Too selfish?"
+    ]
+  },
+  "lc-17": {
+    "id": "lc-17",
+    "questions": [
+      "Have you ever considered ending our relationship? Why?",
+      "What's the most amount of money you would lend me?"
+    ]
+  },
+  "lc-18": {
+    "id": "lc-18",
+    "questions": [
+      "Do you ever think I need to cut back on drinking or drugs?",
+      "What's the most needlessly mean thing you've ever heard me say about someone else?"
+    ]
+  },
+  "lc-19": {
+    "id": "lc-19",
+    "questions": [
+      "Have I ever done anything you think should have gotten me shitcanned?",
+      "Are there certain situations with me you avoid on purpose?"
+    ]
+  },
+  "lc-20": {
+    "id": "lc-20",
+    "questions": [
+      "What's the most egregious lie you've ever told me?",
+      "Do you think I'm too clingy or demand too much attention?"
+    ]
+  },
+  "lc-21": {
+    "id": "lc-21",
+    "questions": [
+      "What personal demon are you in denial of?",
+      "Do you think I'm continuing to grow, or is this the best I'll ever be as a person?"
+    ]
+  },
+  "lc-22": {
+    "id": "lc-22",
+    "questions": [
+      "What advice do I need but don't want to hear?",
+      "Do you think I'm capable of doing something you could never forgive me for?"
+    ]
+  },
+  "lc-23": {
+    "id": "lc-23",
+    "questions": [
+      "Are you sometimes embarrassed to be seen with me? Why?",
+      "What do I never seem to understand about you?"
+    ]
+  },
+  "lc-24": {
+    "id": "lc-24",
+    "questions": [
+      "Do you think I have overachieved or underachieved?",
+      "What will you never understand about me?"
+    ]
+  },
+  "lc-25": {
+    "id": "lc-25",
+    "questions": [
+      "Name one thing I do that disgusts you.",
+      "How have I disappointed you?"
+    ]
+  },
+  "lc-26": {
+    "id": "lc-26",
+    "questions": [
+      "Have you ever hurt someone on purpose?",
+      "What do you think I need to just let go of?"
+    ]
+  },
+  "lc-27": {
+    "id": "lc-27",
+    "questions": [
+      "Name a time you wished we weren't friends.",
+      "Who's someone we know that you wish I was more like and why?"
+    ]
+  },
+  "lc-28": {
+    "id": "lc-28",
+    "questions": [
+      "Do you ever feel like I'm holding you back?",
+      "If I was in a relationship with someone you hated, would you tell me?"
+    ]
+  },
+  "lc-29": {
+    "id": "lc-29",
+    "questions": [
+      "Is there anything about me that creeps you out?",
+      "Would you hire me?"
+    ]
+  },
+  "lc-30": {
+    "id": "lc-30",
+    "questions": [
+      "Do you have any secrets you keep from me and me only?",
+      "Is there an expiration date on our relationship?"
+    ]
+  },
+  "lc-31": {
+    "id": "lc-31",
+    "questions": [
+      "Have I often struck you as immature or unable to take care of myself?",
+      "Do you think I sometimes take advantage of other people?"
+    ]
+  },
+  "lc-32": {
+    "id": "lc-32",
+    "questions": [
+      "What do I think I'm great at, but am actually terrible at?",
+      "Have you ever been genuinely scared of me?"
+    ]
+  },
+  "lc-33": {
+    "id": "lc-33",
+    "questions": [
+      "What's the most serious crime you've ever committed?",
+      "What is (or would be) the worst thing about having me as a travel companion?"
+    ]
+  },
+  "lc-34": {
+    "id": "lc-34",
+    "questions": [
+      "What's the worst thought you've ever had that you've never shared with anyone?",
+      "Do you think I'm a bully?"
+    ]
+  },
+  "lc-35": {
+    "id": "lc-35",
+    "questions": [
+      "What's the bitchiest thing you've ever said about me behind my back?",
+      "Name a time you could have helped someone but didn't bother."
+    ]
+  },
+  "lc-36": {
+    "id": "lc-36",
+    "questions": [
+      "What's the most selfish thing you've ever done?",
+      "What's the stupidest thing you've ever heard me say?"
+    ]
+  },
+  "lc-37": {
+    "id": "lc-37",
+    "questions": [
+      "What's an offensive opinion you will never let go of?",
+      "Do you think you're better than me?"
+    ]
+  },
+  "lc-38": {
+    "id": "lc-38",
+    "questions": [
+      "If you do something you know is wrong, but don't get caught, do you keep doing it?",
+      "What's the longest period of time you could spend with me before never wanting to see me again?"
+    ]
+  },
+  "lc-39": {
+    "id": "lc-39",
+    "questions": [
+      "Have you ever stolen anything from me?",
+      "What's the weirdest thing about me?"
+    ]
+  },
+  "lc-40": {
+    "id": "lc-40",
+    "questions": [
+      "If I died tomorrow, what regrets would you have about our relationship?",
+      "Have you ever knowingly let me embarrass myself, even if you could have stopped it?"
+    ]
+  },
+  "lc-41": {
+    "id": "lc-41",
+    "questions": [
+      "Do you sometimes lie about being busy if you don't want to deal with me?",
+      "Would you trust me alone with your kids for more than a couple hours?"
+    ]
+  },
+  "lc-42": {
+    "id": "lc-42",
+    "questions": [
+      "Do you ever warn people about me before they meet me?",
+      "Do you ever have to fake empathy?"
+    ]
+  },
+  "lc-43": {
+    "id": "lc-43",
+    "questions": [
+      "Have you ever ghosted someone you were close with?",
+      "What's the most annoying thing I do without realizing it?"
+    ]
+  },
+  "lc-44": {
+    "id": "lc-44",
+    "questions": [
+      "What am I the most ignorant about?",
+      "Do you ever think I stir up drama because I enjoy it?"
+    ]
+  },
+  "lc-45": {
+    "id": "lc-45",
+    "questions": [
+      "What's something you know would make you a better person, but you just don't want to do it?",
+      "Have you ever stabbed someone in the back or actively plotted against them?"
+    ]
+  },
+  "lc-46": {
+    "id": "lc-46",
+    "questions": [
+      "Is this the best I've looked since you've known me?",
+      "What's the worst thing you've ever done to an animal?"
+    ]
+  },
+  "lc-47": {
+    "id": "lc-47",
+    "questions": [
+      "How have I changed for the worse since we've met?",
+      "What's the most unreasonable thing you've ever completely lost your shit over?"
+    ]
+  },
+  "lc-48": {
+    "id": "lc-48",
+    "questions": [
+      "What's the most terrible thing you've ever done for money?",
+      "How have you dishonored your parents?"
+    ]
+  },
+  "lc-49": {
+    "id": "lc-49",
+    "questions": [
+      "In what ways have you used me?",
+      "Have you ever had to apologize to someone for my behavior?"
+    ]
+  },
+  "lc-50": {
+    "id": "lc-50",
+    "questions": [
+      "Have you ever intentionally scammed someone or misled them for personal gain?",
+      "If someone important to you said they'd stop seeing you unless you stopped seeing me, would you?"
+    ]
+  },
+  "lc-51": {
+    "id": "lc-51",
+    "questions": [
+      "Name a time you thought I was weak.",
+      "When was the last time you were out of control?"
+    ]
+  },
+  "lc-52": {
+    "id": "lc-52",
+    "questions": [
+      "When have you let your pride get in the way of doing the right thing?",
+      "Have you ever forced someone to do something against their will?"
+    ]
+  },
+  "lc-53": {
+    "id": "lc-53",
+    "questions": [
+      "Have you ever pretended to be someone else on the internet?",
+      "Would your life be any worse if we had never met?"
+    ]
+  },
+  "lc-54": {
+    "id": "lc-54",
+    "questions": [
+      "Have you ever lied on a resume?",
+      "What have you done while intoxicated that you wish you could take back?"
+    ]
+  },
+  "lc-55": {
+    "id": "lc-55",
+    "questions": [
+      "What's the angriest you've ever been at me?",
+      "If we lived across the country from each other, do you think we'd lose touch?"
+    ]
+  }
+}
