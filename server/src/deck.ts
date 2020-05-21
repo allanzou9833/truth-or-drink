@@ -1,7 +1,7 @@
-import otr from '../decks/On-the-rocks.json';
-import ed from '../decks/Extra-dirty.json';
-import lc from '../decks/Last-call.json';
-import hh from '../decks/Happy-hour.json';
+import otr from './decks/On-the-rocks.json';
+import ed from './decks/Extra-dirty.json';
+import lc from './decks/Last-call.json';
+import hh from './decks/Happy-hour.json';
 
 const DECK_NAMES = {
   ON_THE_ROCKS: "On The Rocks",
@@ -14,7 +14,6 @@ class Deck {
   decks: {[deckName: string]: boolean};
   cards: string[];
   constructor() {
-    // const initialDecks = Object.values(DECK_NAMES).reduce((obj, curr) => ({...obj, [curr]: true}), {});
     const initialDecks = Object.values(DECK_NAMES).reduce((obj, curr) => {
       obj[curr] = curr === DECK_NAMES.ON_THE_ROCKS ? true : false;
       return obj;
