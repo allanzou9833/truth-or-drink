@@ -47,6 +47,6 @@ export class LobbyComponent implements OnInit {
   }
 
   get roomLink(): string {
-    return `${this.clientUrl}/?${this.room}`;
+    return `${this.clientUrl}?${this.room}`;
   }
 }

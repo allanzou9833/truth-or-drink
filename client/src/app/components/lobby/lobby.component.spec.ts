@@ -84,7 +84,7 @@ describe('LobbyComponent', () => {
     });
   
     it('should return correct link', () => {
-      const url = `${environment.clientUrl}/?${room}`;
+      const url = `${environment.clientUrl}?${room}`;
       expect(component.roomLink).toBe(url);
     });
   });
