@@ -37,7 +37,7 @@ module.exports = function (config) {
         ]
       }
     },
-    singleRun: false,
+    singleRun: process.env.CI || false,
     restartOnFileChange: true
   });
 };
