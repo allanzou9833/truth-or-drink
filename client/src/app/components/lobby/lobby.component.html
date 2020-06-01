@@ -1,26 +1,30 @@
 <div *ngIf="newGame">
   <div class="room-link">
-    <input #link type="text" class="link" [value]="roomLink" readonly>
-    <button class="btn btn-copy" (click)="copyRoomLink(link)">Copy</button>
+    <input #link type="text" class="link" [value]="roomLink" readonly data-cy="room_link">
+    <button class="btn btn-copy" (click)="copyRoomLink(link)" data-cy="btn_copy">Copy</button>
   </div>
  
   <div class="display">
-    <div class="display-player">
+    <div class="display-players" data-cy="display_players">
       <h1>Players</h1>
       <ul>
-        <li *ngFor="let player of players">{{ player }}</li>
+        <li *ngFor="let player of players; index as i" [attr.data-cy]="'player_'+i">
+          {{ player }}
+        </li>
       </ul>
     </div>
     
-    <div class="display-deck-select">
+    <div class="display-deck-select" data-cy="display_decks">
       <h1>Decks</h1>
-      <ng-container *ngFor="let deck of deckNames">
-        <button [ngClass]="{ 'enabled': selectedDecks[deck] }" class="btn btn-select" (click)="onDeckSelection(deck)">{{deck}}</button>
+      <ng-container *ngFor="let deck of deckNames; index as i">
+        <button [ngClass]="{ 'enabled': selectedDecks[deck] }" class="btn btn-select" (click)="onDeckSelection(deck)" [attr.data-cy]="'deck_'+i">
+          {{deck}}
+        </button>
       </ng-container>
     </div>
   </div>
   
-  <button class="btn btn-primary" (click)="startGame()">Start Game</button>
+  <button class="btn btn-primary" (click)="startGame()" data-cy="btn_start">Start Game</button>
 </div>
 
 <app-card *ngIf="!newGame" (restart)="restart()"></app-card>

@@ -6,7 +6,7 @@ const app = require('http').createServer();
 const io: SocketIO.Server = require('socket.io')(app);
 const port = process.env.PORT || 3000;
 
-app.listen(process.env.PORT);
+app.listen(port);
 
 let state: {[room: string]: {deck: Deck, newGame: boolean}} = {};
 
@@ -19,40 +19,50 @@ io.on('connection', (socket: SocketIO.Socket) => {
   });
 
   socket.on('start game', (room: string) => {
-    state[room].newGame = false;
-    io.to(room).emit('start game');
-    const card = state[room].deck.getCard();
-    io.to(room).emit('card', card);
+    if(state[room]) {
+      state[room].newGame = false;
+      io.to(room).emit('start game');
+      const card = state[room].deck.getCard();
+      io.to(room).emit('card', card);
+    }
   })
 
   socket.on('restart', (room: string) => {
-    state[room].newGame = true;
-    io.to(room).emit('restart');
+    if(state[room]) {
+      state[room].newGame = true;
+      io.to(room).emit('restart');
+    }
   })
 
   socket.on('update decks', ({room, decks}: Game) => {
-    state[room].deck.updateDecks(decks);
-    io.to(room).emit('decks', state[room].deck.decks);
+    if(state[room]) {
+      state[room].deck.updateDecks(decks);
+      io.to(room).emit('decks', state[room].deck.decks);
+    }
   });
 
   socket.on('new card', (room: string) => {
-    const card = state[room].deck.getCard();
-    io.to(room).emit('card', card);
+    if(state[room]) {
+      const card = state[room].deck.getCard();
+      io.to(room).emit('card', card);
+    }
   });
 
   socket.on('join', ({room, playerName}: {room:string, playerName: string}) => {
-    socket.join(room);
-    socket.emit('room id', room);
+    if(state[room]) {
+      socket.join(room);
+      socket.emit('room id', room);
 
-    socket.emit('decks', state[room].deck.decks);
-    if(!state[room].newGame)
+      socket.emit('decks', state[room].deck.decks);
+      if(!state[room].newGame)
       socket.emit('start game');
-
-    socket['playerName'] = playerName;
-    socket['room'] = room;
-
-    const players = getPlayers(io, room);
-    io.to(room).emit('players', players);
+      
+      socket['playerName'] = playerName;
+      socket['room'] = room;
+      
+      const players = getPlayers(io, room);
+      io.to(room).emit('players', players);
+    }
   });
 
   socket.on('create room', (playerName: string) => {

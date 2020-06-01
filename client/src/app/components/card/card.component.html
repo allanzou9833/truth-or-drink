@@ -1,15 +1,15 @@
 <div class="container" *ngIf="card; else empty">
-  <div class="card">
+  <div class="card" data-cy="card">
       <app-one-question *ngIf="!card.questionB" class="card-content" [card]="card"></app-one-question>
       <app-two-questions *ngIf="card.questionB" class="card-content" [card]="card"></app-two-questions>
   </div>
   <div class="btn-group">
-    <button class="btn btn-primary btn-primary" (click)="restart.emit()">New Game</button>
-    <button *ngIf="card" class="btn btn-secondary" (click)="getCard()">Next Card</button>
+    <button class="btn btn-primary btn-primary" (click)="restart.emit()" data-cy="btn_new_game">New Game</button>
+    <button *ngIf="card" class="btn btn-secondary" (click)="getCard()" data-cy="btn_next">Next Card</button>
   </div>
 </div>
 
 <ng-template #empty>
-  <div class="text-empty">The deck is empty. <br /> Please restart.</div>
-  <button class="btn btn-primary" (click)="restart.emit()">Restart</button>
+  <div class="text-empty" data-cy="msg_empty">There are no more cards left. <br /> Please restart.</div>
+  <button class="btn btn-primary" (click)="restart.emit()" data-cy="btn_restart">Restart</button>
 </ng-template>

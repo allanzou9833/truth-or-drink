@@ -1,5 +1,27 @@
 <div class="container">
-  <input id="name" type="text" [(ngModel)]="playerName" placeholder="Enter your name">
-  <button *ngIf="showJoinBtn" class="btn btn-secondary" (click)="joinLobby.emit(playerName)">Join Room</button>
-  <button class="btn btn-primary" (click)="createRoom.emit(playerName)">Create Room</button>
+  <input 
+    id="name" 
+    type="text" 
+    [(ngModel)]="playerName" 
+    placeholder="Enter your name" 
+    autofocus 
+    data-cy="input_name"
+  />
+
+  <button 
+    *ngIf="showJoinBtn" 
+    class="btn btn-secondary" 
+    (click)="joinLobby.emit(playerName)" 
+    data-cy="btn_join"
+  >
+    Join Room
+  </button>
+
+  <button 
+    class="btn btn-primary" 
+    (click)="createRoom.emit(playerName)" 
+    data-cy="btn_create"
+  >
+    Create Room
+  </button>
 </div>
