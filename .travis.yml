@@ -1,9 +1,19 @@
 sudo: required
 language: node_js
-  - "9"
+node_js:
+  - 10
+
 services:
   - docker
+env:
+  global:
+    - DOCKER_COMPOSE_VERSION=1.25.5
+
 before_install:
+  - sudo rm /usr/local/bin/docker-compose
+  - curl -L https://github.com/docker/compose/releases/download/${DOCKER_COMPOSE_VERSION}/docker-compose-`uname -s`-`uname -m` > docker-compose
+  - chmod +x docker-compose
+  - sudo mv docker-compose /usr/local/bin
   - wget -qO- https://toolbelt.heroku.com/install.sh | sh
   - echo "$HEROKU_API_KEY" | docker login -u "$HEROKU_USERNAME" --password-stdin registry.heroku.com
   # - docker build -t allanzou9833/client-test -f ./client/Dockerfile.dev ./client
