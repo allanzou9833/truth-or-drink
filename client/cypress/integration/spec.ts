@@ -10,7 +10,7 @@ import {
   clickStartGameBtn,
   clickDeckSelect,
   setupSocketioFailure
-} from './util';
+} from '../support/util';
 
 it('User can create a room', () => {
   setupSocketioFailure('/');
@@ -39,15 +39,15 @@ describe('After room creation', () => {
   beforeEach(() => {
     setupSocketioFailure('/');
     createRoom('Agust D');
-    cy.wait(500);
+    cy.wait(1000);
   });
 
   it('User can select decks to play with', () => {
-    clickDeckSelect(1);
-    cy.get('@deck_1').should('have.class', 'enabled');
+    clickDeckSelect(1, 'have.class', 'enabled');
+    // cy.get('@deck_1').click().should('have.class', 'enabled');
 
-    clickDeckSelect(0);
-    cy.get('@deck_0').should('not.have.class', 'enabled');
+    clickDeckSelect(0, 'not.have.class', 'enabled');
+    // cy.get('@deck_0').click().should('not.have.class', 'enabled');
   });
 
   it('User can start a game', () => {

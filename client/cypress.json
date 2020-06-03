@@ -1,4 +1,6 @@
 {
   "projectId": "c28ptz",
-  "baseUrl": "http://localhost:4200"
+  "baseUrl": "http://localhost:4200",
+  "video": false,
+  "pluginsFile": "./cypress/plugins/index.js"
 }

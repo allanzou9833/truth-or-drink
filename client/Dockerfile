@@ -21,11 +21,12 @@ RUN npm install -g @angular/cli@9
 COPY . /app
 
 # # run tests
-# RUN ng test --watch=false
+RUN ng test --watch=false
 # RUN ng e2e --port 4202
 
 # generate build
-RUN npm run build
+ARG CONFIGURATION=production
+RUN ng build --configuration=${CONFIGURATION}
 
 ############
 ### prod ###

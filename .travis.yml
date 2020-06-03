@@ -6,10 +6,14 @@ services:
 before_install:
   - wget -qO- https://toolbelt.heroku.com/install.sh | sh
   - echo "$HEROKU_API_KEY" | docker login -u "$HEROKU_USERNAME" --password-stdin registry.heroku.com
-  - docker build -t allanzou9833/client-test -f ./client/Dockerfile.dev ./client
+  # - docker build -t allanzou9833/client-test -f ./client/Dockerfile.dev ./client
+before_script:
+  - docker-compose up -d build
 script:
-  - docker run -e CI=true allanzou9833/client-test npm run test
-  - docker run -e CI=true allanzou9833/client-test npm run e2e
+  # - docker run -e CI=true allanzou9833/client-test npm run test
+  - docker-compose run cypress ./node_modules/.bin/cypress run
+after_script:
+  - docker-compose down
 after_success:
   - docker build -t registry.heroku.com/$HEROKU_APP_CLIENT/web ./client
   - docker build -t registry.heroku.com/$HEROKU_APP_SERVER/web ./server

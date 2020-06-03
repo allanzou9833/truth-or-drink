@@ -43,7 +43,7 @@ export const playerDisplayIsCorrect = (players: string[]) => {
     .children()
     .should('have.length', players.length)
     .then($lis => {
-      const texts = [...$lis].map(li => li.textContent.trim());
+      const texts = [...$lis.toArray()].map(li => li.textContent.trim());
       expect(texts).to.deep.eq(players);
     })
 }
@@ -71,10 +71,10 @@ export const deckDisplayIsCorrect = () => {
     .children('button')
     .should('have.length', 4)
     .then($buttons => {
-      const texts = [...$buttons].map(b => b.textContent.trim());
+      const texts = [...$buttons.toArray()].map(b => b.textContent.trim());
       expect(texts).to.deep.eq(expected.map(x => x.text));
 
-      const classes = [...$buttons].map(b => b.className);
+      const classes = [...$buttons.toArray()].map(b => b.className);
       expect(classes).to.deep.eq(expected.map(x => x.classes));
     });
 }
@@ -84,10 +84,11 @@ export const createRoom = (playerName: string) => {
   cy.get(dataSelector(selectors.BTN_CREATE)).click();
 }
 
-export const clickDeckSelect = (deckIndex: number) => {
+export const clickDeckSelect = (deckIndex: number, chainer: string, value: string) => {
   cy.get(dataSelector(`deck_${deckIndex}`))
     .click()
-    .as(`deck_${deckIndex}`);
+    .should(chainer, value)
+    // .as(`deck_${deckIndex}`);
 }
 
 export const clickStartGameBtn = () => {
