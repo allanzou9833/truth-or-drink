@@ -21,12 +21,12 @@ RUN npm install -g @angular/cli@9
 COPY . /app
 
 # # run tests
-# RUN ng test --watch=false
+RUN ng test --watch=false
 # RUN ng e2e --port 4202
 
 # generate build
 # ARG CONFIGURATION=production
-RUN ng build --configuration=production
+RUN ng build --configuration=ci
 
 ############
 ### prod ###
@@ -37,7 +37,7 @@ FROM nginx:alpine
 
 # copy artifact build from the 'build environment'
 COPY --from=build /app/dist /usr/share/nginx/html
-COPY --from=build /app/default.conf.template /etc/nginx/conf.d/default.conf.template
 
 # run nginx
-CMD /bin/sh -c "envsubst '\$PORT' < /etc/nginx/conf.d/default.conf.template > /etc/nginx/conf.d/default.conf" && nginx -g 'daemon off;'
+CMD ["nginx", "-g", "daemon off;"]
+# CMD /bin/sh -c "envsubst '\$PORT' < /etc/nginx/conf.d/default.conf.template > /etc/nginx/conf.d/default.conf" && nginx -g 'daemon off;'

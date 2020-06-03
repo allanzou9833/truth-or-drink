@@ -21,7 +21,7 @@ before_script:
   - docker-compose -f docker-compose.ci.yml up -d --build
 script:
   # - docker run -e CI=true allanzou9833/client-test npm run test
-  - docker-compose run cypress ./node_modules/.bin/cypress run
+  - docker-compose -f docker-compose.ci.yml run cypress ./node_modules/.bin/cypress run
 after_script:
   - docker-compose down
 after_success:
