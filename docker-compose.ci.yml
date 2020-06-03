@@ -1,6 +1,6 @@
 version: '3'
 services:
-  socketio: # this needs to build from test-server image
+  socketio:
     image: allanzou9833/td-test-server
     ports:
       - '8080:3000'
