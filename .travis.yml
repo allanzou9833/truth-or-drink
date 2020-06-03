@@ -18,7 +18,7 @@ before_install:
   - echo "$HEROKU_API_KEY" | docker login -u "$HEROKU_USERNAME" --password-stdin registry.heroku.com
   # - docker build -t allanzou9833/client-test -f ./client/Dockerfile.dev ./client
 before_script:
-  - docker-compose up -d build
+  - docker-compose up -d --build
 script:
   # - docker run -e CI=true allanzou9833/client-test npm run test
   - docker-compose run cypress ./node_modules/.bin/cypress run
