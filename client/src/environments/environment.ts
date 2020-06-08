@@ -6,6 +6,8 @@ export const environment = {
   production: false,
   serverUrl: 'http://localhost:8080/',
   clientUrl: 'http://localhost:4200/'
+  // serverUrl: 'http://192.168.1.15:8080/',
+  // clientUrl: 'http://192.168.1.15:4200/'
 };
 
 /*
