@@ -1,4 +1,6 @@
-/card-parser/*.txt
-/test-server
-/server/node_modules
-/server/build
+card-parser
+!card-parser/parse.py
+test-server
+server/node_modules
+server/build
+server/src/decks

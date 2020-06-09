@@ -9,11 +9,3 @@
   hh: [],
   lc: []
 }
-
-
-[
-  {
-    id: deck-1,
-    questions: [A, B]
-  }
-]

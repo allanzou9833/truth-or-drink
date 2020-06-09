@@ -54,8 +54,8 @@ io.on('connection', (socket: SocketIO.Socket) => {
       socket.emit('room id', room);
 
       socket.emit('decks', state[room].deck.decks);
-      if(!state[room].newGame)
-      socket.emit('start game');
+      if(!state[room].newGame) 
+        socket.emit('start game');
       
       socket['playerName'] = playerName;
       socket['room'] = room;

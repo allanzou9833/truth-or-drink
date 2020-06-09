@@ -14,18 +14,73 @@ export const selectors = {
   'BTN_RESTART': 'btn_restart'
 }
 
-export const dataSelector = (value: string) => `[data-cy=${value}]`;
+const dataSelector = (value: string) => `[data-cy=${value}]`;
 
-export const verifyElementsExist = (selectors: string[]) => {
+const verifyElementsExist = (selectors: string[]) => {
   selectors.forEach(selector => {
     cy.get(dataSelector(selector)).should('exist');
   })
 }
 
-export const verifyElementsDontExist = (selectors: string[]) => {
+const verifyElementsDontExist = (selectors: string[]) => {
   selectors.forEach(selector => {
     cy.get(dataSelector(selector)).should('not.exist');
   })
+}
+
+export const clickBtn = (selector: string) => {
+  cy.get(dataSelector(selector)).click();
+}
+
+export const homeIsDisplayed = (join: boolean = false) => {
+  if(join) {
+    verifyElementsExist([
+      selectors.INPUT_NAME, 
+      selectors.BTN_JOIN, 
+      selectors.BTN_CREATE
+    ]);
+  }
+  else {
+    verifyElementsExist([selectors.INPUT_NAME, selectors.BTN_CREATE]);
+    verifyElementsDontExist([selectors.BTN_JOIN]);
+  }
+  //   cy.focused().should('have.id', 'name');
+}
+
+export const lobbyIsDisplayed = () => {
+  verifyElementsExist([
+    selectors.ROOM_LINK, 
+    selectors.BTN_COPY, 
+    selectors.DISPLAY_PLAYERS, 
+    selectors.DISPLAY_DECKS, 
+    selectors.BTN_START
+  ]);
+}
+
+export const cardIsDisplayed = () => {
+  verifyElementsExist([
+    selectors.CARD,
+    selectors.BTN_NEW_GAME,
+    selectors.BTN_NEXT
+  ]);
+
+  verifyElementsDontExist([
+    selectors.MSG_EMPTY,
+    selectors.BTN_RESTART
+  ]);
+}
+
+export const cardEmptyIsDisplayed = () => {
+  verifyElementsExist([
+    selectors.MSG_EMPTY,
+    selectors.BTN_RESTART
+  ]);
+
+  verifyElementsDontExist([
+    selectors.CARD,
+    selectors.BTN_NEW_GAME,
+    selectors.BTN_NEXT
+  ]);
 }
 
 export const roomLinkIsValid = () => {
@@ -81,18 +136,18 @@ export const deckDisplayIsCorrect = () => {
 
 export const createRoom = (playerName: string) => {
   cy.get(dataSelector(selectors.INPUT_NAME)).focus().type(playerName);
-  cy.get(dataSelector(selectors.BTN_CREATE)).click();
+  clickBtn(selectors.BTN_CREATE);
+}
+
+export const joinRoom = (playerName: string) => {
+  cy.get(dataSelector(selectors.INPUT_NAME)).focus().type(playerName);
+  clickBtn(selectors.BTN_JOIN);
 }
 
 export const clickDeckSelect = (deckIndex: number, chainer: string, value: string) => {
   cy.get(dataSelector(`deck_${deckIndex}`))
     .click()
     .should(chainer, value)
-    // .as(`deck_${deckIndex}`);
-}
-
-export const clickStartGameBtn = () => {
-  cy.get(dataSelector('btn_start')).click();
 }
 
 export const setupSocketioFailure = (visitRoute: string) => {
@@ -107,4 +162,5 @@ export const setupSocketioFailure = (visitRoute: string) => {
   cy.visit(visitRoute);
   cy.wait('@socketio', { requestTimeout: 2000 });
 }
+
 
