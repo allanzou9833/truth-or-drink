@@ -2,7 +2,7 @@
 
 This is an online version of the game **Truth or Drink** by [Cut](https://www.youtube.com/user/watchcut) and allows you to play with friends anywhere in the world by creating a room and sharing the room link. 
 
-### Gameplay:
+### Gameplay
 [![Truth or Drink Video](http://img.youtube.com/vi/pKeynMccbZs/0.jpg)](https://www.youtube.com/watch?v=pKeynMccbZs)
 
 ### Demo
@@ -37,15 +37,15 @@ card2_questionB
 3. Pass the `.txt` file into the python script with the command `python parse.py Deck-name.txt`. This writes out `Deck-name.json`.
 
 >*Last-call.json*
-``` json
+```
 {
   "lc-1": {
     "id": "lc-1",
-    questions: [question1, question2]
+    questions: [questionA, questionB]
   }, 
   "lc-2": {
     "id": "lc-2",
-    questions: [question1, question2]
+    questions: [questionA, questionB]
   },
   ...
 }
